@@ -16,14 +16,16 @@ const initialNodes = [
   { id: 'Agent_Node', type: 'agent', position: { x: 200, y: 0 }, data: { label: 'Agent_Node' } },
   { id: 'Output', type: 'output', position: { x: 400, y: 0 }, data: { label: 'Output' } },
 ];
-const initialEdges = [];
+import type { Edge, Connection } from '@xyflow/react';
+
+const initialEdges: Edge[] = [];
 
 export default function App() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const onConnect = useCallback(
-    (params) =>
+    (params: Connection) =>
       setEdges((eds) =>
         addEdge({ ...params, type: 'custom-edge' }, eds) // Explicitly set custom edge type
       ),
@@ -133,7 +135,7 @@ export default function App() {
   }, [nodes, edges, promptValue, processingOption, promptTemplateValues]);
 
   // Node click handler
-  const onNodeClick = useCallback((event, node) => {
+  const onNodeClick = useCallback((_event: React.MouseEvent, node: any) => {
     setSelectedNode(node);
     setModalOpen(true);
   }, []);
@@ -184,7 +186,7 @@ export default function App() {
   };
 
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
-  const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
+  const [, setReactFlowInstance] = useState<any>(null);
 
   const onDrop = useCallback(
     (event: React.DragEvent) => {
@@ -612,18 +614,16 @@ export default function App() {
                           remarkPlugins={[remarkMath]}
                           rehypePlugins={[rehypeKatex]}
                           components={{
-                            code({node, inline, className, children, ...props}) {
-                              return !inline ? (
+                            code: ({ className, children, ...props }) => {
+                              const isInline = !className;
+                              return !isInline ? (
                                 <pre style={{background:'#222',color:'#fff',borderRadius:4,padding:'10px',overflowX:'auto'}}>
-                                  <code {...props}>{children}</code>
+                                  <code className={className} {...props}>{children}</code>
                                 </pre>
                               ) : (
                                 <code style={{background:'#eee',borderRadius:3,padding:'2px 5px'}} {...props}>{children}</code>
                               );
-                            },
-                            math({value}) {
-                              return <span style={{background:'#e3f2fd',padding:'2px 6px',borderRadius:3}}>{value}</span>;
-                            },
+                            }
                           }}
                         >
                           {outputValue}

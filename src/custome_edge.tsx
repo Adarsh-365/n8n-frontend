@@ -8,7 +8,15 @@ import {
 
 
 
-export default function CustomEdge({ id, sourceX, sourceY, targetX, targetY }) {
+import type { EdgeProps } from '@xyflow/react';
+
+export default function CustomEdge({ 
+  id, 
+  sourceX, 
+  sourceY, 
+  targetX, 
+  targetY 
+}: EdgeProps) {
   const { setEdges } = useReactFlow();
   const [edgePath, labelX, labelY] = getStraightPath({
     sourceX,
@@ -28,10 +36,7 @@ export default function CustomEdge({ id, sourceX, sourceY, targetX, targetY }) {
           strokeDasharray: '5,5',
           animation: 'dash-animation 2s linear infinite',
         }}
-        markerEnd={{
-          type: MarkerType.ArrowClosed,
-          color: '#4A90E2',
-        }}
+        markerEnd="url(#arrow)"
         className="custom-edge"
       />
       <EdgeLabelRenderer>
@@ -57,10 +62,10 @@ export default function CustomEdge({ id, sourceX, sourceY, targetX, targetY }) {
             setEdges((es) => es.filter((e) => e.id !== id));
           }}
           onMouseEnter={(e) => {
-            e.target.style.backgroundColor = '#FF3B30';
+            (e.target as HTMLElement).style.backgroundColor = '#FF3B30';
           }}
           onMouseLeave={(e) => {
-            e.target.style.backgroundColor = '#FF6F61';
+            (e.target as HTMLElement).style.backgroundColor = '#FF6F61';
           }}
         >
           x

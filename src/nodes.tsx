@@ -39,7 +39,11 @@ function NodeWithDelete({ id, children }: { id: string; children: React.ReactNod
 }
 
 // 1. Custom node component with right handle
-export function PromptNode({ id, data }: any) {
+interface NodeData {
+  label: string;
+}
+
+export function PromptNode({ data }: { data: NodeData }) {
   return (
     <div style={{ padding: 10, border: '1px solid #888', borderRadius: 5, background: '#fff' }}>
       <div>{data.label}</div>
@@ -79,7 +83,7 @@ export function AgentNode({ id, data }: any) {
 }
 
 // 3. Custom node component with left handle
-export function OutputNode({ id, data }: any) {
+export function OutputNode({ data }: { data: NodeData }) {
   return (
     <div style={{ padding: 10, border: '1px solid #888', borderRadius: 5, background: '#fff' }}>
       <Handle type="target" position={Position.Left} style={{ background: '#555' }} />
