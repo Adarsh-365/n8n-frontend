@@ -11,12 +11,13 @@ import '@xyflow/react/dist/style.css';
 import CustomEdge from './custome_edge';
 
 
+import type { Edge, Connection } from '@xyflow/react';
+
 const initialNodes = [
   { id: 'Prompt_Node', type: 'prompt', position: { x: 0, y: 0 }, data: { label: 'Prompt' } },
   { id: 'Agent_Node', type: 'agent', position: { x: 200, y: 0 }, data: { label: 'Agent_Node' } },
   { id: 'Output', type: 'output', position: { x: 400, y: 0 }, data: { label: 'Output' } },
 ];
-import type { Edge, Connection } from '@xyflow/react';
 
 const initialEdges: Edge[] = [];
 
@@ -93,7 +94,6 @@ export default function App() {
     };
 
     const resp = await fetch('https://n8n-backend-one.vercel.app/main', {
-      // const resp = await fetch(' http://127.0.0.1:8000/main', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(combinedData),
