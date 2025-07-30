@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\title{n8n Frontend Project Description}
+\author{Project Documentation}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Project Overview}
+The n8n Frontend is a modern web application built using React and TypeScript that provides a visual workflow editor for AI and data processing tasks. The application allows users to create, configure, and execute workflows by connecting different types of nodes in a visual graph interface.
+
+\section{Key Features}
+
+\subsection{Visual Flow Editor}
+\begin{itemize}
+    \item Interactive node-based workflow editor using ReactFlow
+    \item Drag and drop interface for adding new nodes
+    \item Custom edge connections between nodes
+    \item Snap-to-grid functionality for precise node placement
+    \item Collapsible sidebar for node selection
+\end{itemize}
+
+\subsection{Node Types}
+The application supports several specialized node types:
+\begin{itemize}
+    \item \textbf{Prompt Node}: Input node for user prompts
+    \item \textbf{Agent Node}: Processing node with customizable options
+    \item \textbf{LLM Node}: Language Model integration node
+    \item \textbf{Memory Node}: State management node
+    \item \textbf{Vector Database Node}: Document storage and retrieval node
+    \item \textbf{Output Node}: Results display node
+\end{itemize}
+
+\subsection{Interactive Features}
+\begin{itemize}
+    \item Modal dialogs for node configuration
+    \item Draggable and resizable UI components
+    \item Real-time workflow execution
+    \item Run/Stop controls for workflow execution
+    \item Chatbot interface for interaction
+\end{itemize}
+
+\section{Technical Architecture}
+
+\subsection{Frontend Stack}
+\begin{itemize}
+    \item React.js with TypeScript
+    \item Vite as build tool
+    \item @xyflow/react for flow visualization
+    \item ReactMarkdown for markdown rendering
+    \item KaTeX for mathematical expressions
+\end{itemize}
+
+\subsection{Key Components}
+
+\subsubsection{App Component}
+The main application component manages:
+\begin{itemize}
+    \item Workflow state management
+    \item Node and edge handling
+    \item Server communication
+    \item UI state management
+\end{itemize}
+
+\subsubsection{ChatbotBar Component}
+A dedicated chat interface that provides:
+\begin{itemize}
+    \item Real-time communication
+    \item Message history
+    \item Markdown rendering support
+    \item Expandable/collapsible interface
+\end{itemize}
+
+\section{API Integration}
+
+The frontend integrates with a backend service through RESTful API endpoints:
+\begin{itemize}
+    \item Workflow execution endpoint
+    \item File upload for Vector Database
+    \item Real-time status updates
+\end{itemize}
+
+\section{Deployment}
+
+The application is deployed using:
+\begin{itemize}
+    \item GitHub Pages for hosting
+    \item Continuous deployment through GitHub Actions
+    \item Vite build system for production optimization
+\end{itemize}
+
+\section{UI/UX Features}
+
+\subsection{Responsive Design}
+\begin{itemize}
+    \item Adaptive layout
+    \item Responsive modals
+    \item Dynamic sidebar
+    \item Custom scrollbars
+\end{itemize}
+
+\subsection{Interactive Elements}
+\begin{itemize}
+    \item Drag and drop functionality
+    \item Real-time feedback
+    \item Loading states
+    \item Error handling
+\end{itemize}
+
+\section{Future Enhancements}
+Potential improvements for future versions:
+\begin{itemize}
+    \item Workflow templates
+    \item Node grouping
+    \item Undo/redo functionality
+    \item Workflow export/import
+    \item Additional node types
+    \item Enhanced error handling
+    \item Performance optimizations
+\end{itemize}
+
+\end{document}
