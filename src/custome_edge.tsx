@@ -2,8 +2,7 @@ import {
   BaseEdge,
   EdgeLabelRenderer,
   getStraightPath,
-  useReactFlow,
-  MarkerType,
+  useReactFlow
 } from '@xyflow/react';
 
 

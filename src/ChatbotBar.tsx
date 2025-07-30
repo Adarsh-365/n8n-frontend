@@ -194,18 +194,16 @@ const ChatbotBar: React.FC<ChatbotBarProps> = ({
                   remarkPlugins={[remarkMath]}
                   rehypePlugins={[rehypeKatex]}
                   components={{
-                    code({node, inline, className, children, ...props}) {
-                      return !inline ? (
+                    code: ({ className, children, ...props }) => {
+                      const isInline = !className;
+                      return !isInline ? (
                         <pre style={{background:'#222',color:'#fff',borderRadius:4,padding:'10px',overflowX:'auto'}}>
-                          <code {...props}>{children}</code>
+                          <code className={className} {...props}>{children}</code>
                         </pre>
                       ) : (
                         <code style={{background:'#eee',borderRadius:3,padding:'2px 5px'}} {...props}>{children}</code>
                       );
-                    },
-                    math({value}) {
-                      return <span style={{background:'#e3f2fd',padding:'2px 6px',borderRadius:3}}>{value}</span>;
-                    },
+                    }
                   }}
                 >
                   {msg.content}
@@ -418,18 +416,16 @@ const ChatbotBar: React.FC<ChatbotBarProps> = ({
                 remarkPlugins={[remarkMath]}
                 rehypePlugins={[rehypeKatex]}
                 components={{
-                  code({node, inline, className, children, ...props}) {
-                    return !inline ? (
+                  code: ({ className, children, ...props }) => {
+                    const isInline = !className;
+                    return !isInline ? (
                       <pre style={{background:'#222',color:'#fff',borderRadius:4,padding:'6px',overflowX:'auto', fontSize:13}}>
-                        <code {...props}>{children}</code>
+                        <code className={className} {...props}>{children}</code>
                       </pre>
                     ) : (
                       <code style={{background:'#eee',borderRadius:3,padding:'2px 5px'}} {...props}>{children}</code>
                     );
-                  },
-                  math({value}) {
-                    return <span style={{background:'#e3f2fd',padding:'2px 6px',borderRadius:3}}>{value}</span>;
-                  },
+                  }
                 }}
               >
                 {msg.content}
