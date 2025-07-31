@@ -1,54 +1,111 @@
-![](https://github.com/xyflow/web/blob/main/assets/codesandbox-header-ts.png?raw=true)
+# n8n Frontend Project Description
 
-# React Flow starter (Vite + TS)
+**Author:** Project Documentation
+**Date:** November 26, 2023
 
-We've put together this template to serve as a starting point for folks
-interested in React Flow. You can use this both as a base for your own React
-Flow applications, or for small experiments or bug reports.
+## Project Overview
 
-**TypeScript not your thing?** We also have a vanilla JavaScript starter template,
-just for you!
+The n8n Frontend is a modern web application built using React and TypeScript that provides a visual workflow editor for AI and data processing tasks. The application allows users to create, configure, and execute workflows by connecting different types of nodes in a visual graph interface.
 
-## Getting up and running
+## Key Features
 
-You can get this template without forking/cloning the repo using `degit`:
+### Visual Flow Editor
 
-```bash
-npx degit xyflow/vite-react-flow-template your-app-name
-```
+-   Interactive node-based workflow editor using ReactFlow
+-   Drag and drop interface for adding new nodes
+-   Custom edge connections between nodes
+-   Snap-to-grid functionality for precise node placement
+-   Collapsible sidebar for node selection
 
-The template contains mostly the minimum dependencies to get up and running, but
-also includes eslint and some additional rules to help you write React code that
-is less likely to run into issues:
+### Node Types
 
-```bash
-npm install # or `pnpm install` or `yarn install`
-```
+The application supports several specialized node types:
 
-Vite is a great development server and build tool that we recommend our users to
-use. You can start a development server with:
+-   **Prompt Node**: Input node for user prompts
+-   **Agent Node**: Processing node with customizable options
+-   **LLM Node**: Language Model integration node
+-   **Memory Node**: State management node
+-   **Vector Database Node**: Document storage and retrieval node
+-   **Output Node**: Results display node
 
-```bash
-npm run dev
-```
+### Interactive Features
 
-While the development server is running, changes you make to the code will be
-automatically reflected in the browser!
+-   Modal dialogs for node configuration
+-   Draggable and resizable UI components
+-   Real-time workflow execution
+-   Run/Stop controls for workflow execution
+-   Chatbot interface for interaction
 
-## Things to try:
+## Technical Architecture
 
-- Create a new custom node inside `src/nodes/` (don't forget to export it from `src/nodes/index.ts`).
-- Change how things look by [overriding some of the built-in classes](https://reactflow.dev/learn/customization/theming#overriding-built-in-classes).
-- Add a layouting library to [position your nodes automatically](https://reactflow.dev/learn/layouting/layouting)
+### Frontend Stack
 
-## Resources
+-   React.js with TypeScript
+-   Vite as build tool
+-   `@xyflow/react` for flow visualization
+-   `ReactMarkdown` for markdown rendering
+-   `KaTeX` for mathematical expressions
 
-Links:
+### Key Components
 
-- [React Flow - Docs](https://reactflow.dev)
-- [React Flow - Discord](https://discord.com/invite/Bqt6xrs)
+#### App Component
 
-Learn:
+The main application component manages:
 
-- [React Flow – Custom Nodes](https://reactflow.dev/learn/customization/custom-nodes)
-- [React Flow – Layouting](https://reactflow.dev/learn/layouting/layouting)
+-   Workflow state management
+-   Node and edge handling
+-   Server communication
+-   UI state management
+
+#### ChatbotBar Component
+
+A dedicated chat interface that provides:
+
+-   Real-time communication
+-   Message history
+-   Markdown rendering support
+-   Expandable/collapsible interface
+
+## API Integration
+
+The frontend integrates with a backend service through RESTful API endpoints:
+
+-   Workflow execution endpoint
+-   File upload for Vector Database
+-   Real-time status updates
+
+## Deployment
+
+The application is deployed using:
+
+-   GitHub Pages for hosting
+-   Continuous deployment through GitHub Actions
+-   Vite build system for production optimization
+
+## UI/UX Features
+
+### Responsive Design
+
+-   Adaptive layout
+-   Responsive modals
+-   Dynamic sidebar
+-   Custom scrollbars
+
+### Interactive Elements
+
+-   Drag and drop functionality
+-   Real-time feedback
+-   Loading states
+-   Error handling
+
+## Future Enhancements
+
+Potential improvements for future versions:
+
+-   Workflow templates
+-   Node grouping
+-   Undo/redo functionality
+-   Workflow export/import
+-   Additional node types
+-   Enhanced error handling
+-   Performance optimizations
